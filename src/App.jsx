@@ -12,14 +12,25 @@ import HotelDetailPage from './Features/Public/Pages/HotelDetailPage';
 import PublicLayout from './Features/Public/layouts/PublicLayout';
 import HotelsPage from './Features/Public/Pages/HotelsPage.jsx';
 import AboutPage from './Features/Public/Pages/AboutPage.jsx';
+import HotelDetail from './Features/Public/Pages/HotelDetailPage.jsx';
 import ContactPage from './Features/Public/Pages/ContactPage.jsx';
+
+
+// Manager Pages
+import ManagerDashboard from './Features/Manager/pages/ManagerDashboard.jsx';
+import ManagerLayout from './Features/Manager/components/ManagerLayout.jsx';
+import ManageRoomsPage from './Features/Manager/pages/ManageRoomsPage.jsx';
+import BookingsPage from './Features/Manager/pages/BookingsPage.jsx';
+import RevenuePage from './Features/Manager/pages/RevenuePage.jsx';
+import SettingsPage from './Features/Manager/pages/SettingsPage.jsx';
+
 
 
 
 
 // Role-Specific Pages (Manager and Admin)
-import ManagerDashboard from './Features/Manager/Pages/Dashboard.jsx';
-import AdminDashboard from './Features/Admin/Pages/Dashboard.jsx';
+
+import AdminDashboard from './Features/Admin/pages/Dashboard.jsx';
 // import AuthLayout from './components/Auth/AuthLayout'; // Contains Login/Register
 import NotFoundPage from './components/common/NotFound'; // Simple 404 page
 
@@ -40,8 +51,9 @@ function App() {
           <Route path='/HotelsPage' element={<HotelsPage />} />
           <Route path='/about' element={<AboutPage />} />
           <Route path='/contact' element={<ContactPage />} />
-
-          <Route path="/hotels" element={<HotelDetailPage />} />
+          <Route path='/Review' element={<HotelDetail />} />
+          
+          
 
 
         </Route>
@@ -53,7 +65,14 @@ function App() {
         
 
         {/* ======================= 2. MANAGER ROUTES (Requires 'manager' role) ======================= */}
-        <Route path='/manager' element={ <ManagerDashboard /> } />
+        <Route element={<ManagerLayout />}>
+          <Route path ="manager" element={<ManagerDashboard />} />
+          <Route path="rooms" element={<ManageRoomsPage />} />
+          <Route path="bookings" element={<BookingsPage />} />
+          <Route path="revenue" element={<RevenuePage />} />
+          <Route path="settings" element={<SettingsPage />} />
+        </Route>
+          
 
 
         {/* ======================= 3. ADMIN ROUTES (Requires 'admin' role) ======================= */}

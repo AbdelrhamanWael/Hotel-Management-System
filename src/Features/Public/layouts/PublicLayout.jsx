@@ -5,7 +5,7 @@ import { Home, Hotel, User, LogIn, Bell, Search, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 
 const PublicLayout = () => {
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
     <div className="flex flex-col min-h-screen">
       {/* Navbar */}
@@ -85,6 +85,13 @@ const PublicLayout = () => {
                   <Link to="/register" className="block px-3 py-2 text-base font-medium bg-blue-600 text-white hover:bg-blue-700 rounded-md">
                     Sign Up
                   </Link>
+                  <button
+                    type="button"
+                    onClick={() => setAuthView('register')}
+                    className="block px-3 py-2 text-base font-medium bg-blue-600 text-white hover:bg-blue-700 rounded-md"
+                  >
+                    Sign 
+                  </button>
                 </div>
               </div>
             </div>
